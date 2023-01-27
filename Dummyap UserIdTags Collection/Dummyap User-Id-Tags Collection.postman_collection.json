@@ -1,0 +1,111 @@
+{
+	"info": {
+		"_postman_id": "ea5d4ed4-e8ab-4c4e-a506-b6c5480297cd",
+		"name": "Dummyap User/Id/Tags Collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19590136"
+	},
+	"item": [
+		{
+			"name": "Get List By User",
+			"item": [
+				{
+					"name": "Get List By User",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}user/{{id}}/post",
+							"host": [
+								"{{url}}user"
+							],
+							"path": [
+								"{{id}}",
+								"post"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Get List By Tag",
+			"item": [
+				{
+					"name": "Get List By Tag",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}tag/{{tags}}/post",
+							"host": [
+								"{{url}}tag"
+							],
+							"path": [
+								"{{tags}}",
+								"post"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Get Post by id",
+			"item": [
+				{
+					"name": "Get Post by id",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{url}}post/{{id}}",
+							"host": [
+								"{{url}}post"
+							],
+							"path": [
+								"{{id}}"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

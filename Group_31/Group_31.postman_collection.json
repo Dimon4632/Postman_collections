@@ -1,0 +1,674 @@
+{
+	"info": {
+		"_postman_id": "f16b33fe-8a0d-4c50-bb1e-0abdfa773f2f",
+		"name": "Group_31",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19590136"
+	},
+	"item": [
+		{
+			"name": "Lern",
+			"item": [
+				{
+					"name": "/",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{hw}}",
+							"host": [
+								"{{hw}}"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/ first",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{hw}}first",
+							"host": [
+								"{{hw}}first"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/ get_method",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{hw}}get_method?name={{name}}&age={{age}}",
+							"host": [
+								"{{hw}}get_method"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "{{name}}"
+								},
+								{
+									"key": "age",
+									"value": "{{age}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/ user_info_3",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Your test name\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.name).to.eql(pm.environment.get(\"name\"));\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Your test age\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.age).to.eql(pm.environment.get(\"age\"));\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Your test salary\", function () {\r",
+									"    var jsonData = pm.response.json();    \r",
+									"    pm.expect(jsonData.family.u_salary_1_5_year).to.eql(pm.environment.get(\"salary\")*4);\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "age",
+									"value": "{{age}}",
+									"type": "text"
+								},
+								{
+									"key": "salary",
+									"value": "{{salary}}",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "{{name}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{hw}}user_info_3",
+							"host": [
+								"{{hw}}user_info_3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = pm.response.json();\r",
+									"var resp_token = jsonData.token;  \r",
+									"pm.environment.set(\"token\", resp_token);"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "login",
+									"value": "{{login}}",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "{{password}}",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{hw}}login",
+							"host": [
+								"{{hw}}login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/user_info",
+					"event": [
+						{
+							"listen": "prerequest",
+							"script": {
+								"exec": [
+									""
+								],
+								"type": "text/javascript"
+							}
+						},
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.test(\"Your test u_age\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.person.u_age).to.eql(+pm.environment.get(\"age\"));\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Your test u_salary_1_5_year\", function () {\r",
+									"    var jsonData = pm.response.json();\r",
+									"    pm.expect(jsonData.person.u_salary_1_5_year).to.eql(pm.environment.get(\"salary\")*4);\r",
+									"});\r",
+									"\r",
+									"\r",
+									"pm.test(\"Your test start_qa_salary\", function () {\r",
+									"    var jsonData = pm.response.json();    \r",
+									"    pm.expect(jsonData.start_qa_salary).to.eql(+pm.environment.get(\"salary\"));\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\": \"{{name}}\",\r\n    \"age\": \"{{age}}\",    \r\n    \"salary\": \"{{salary}}\",\r\n    \"auth_token\": \"{{token}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{hw}}user_info",
+							"host": [
+								"{{hw}}user_info"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "hw",
+			"item": [
+				{
+					"name": "/get_method",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{hw}}get_method?name={{name}}&age={{age}}",
+							"host": [
+								"{{hw}}get_method"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "{{name}}"
+								},
+								{
+									"key": "age",
+									"value": "{{age}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/user_info_3",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "str",
+									"type": "text"
+								},
+								{
+									"key": "age",
+									"value": "37",
+									"type": "text"
+								},
+								{
+									"key": "salary",
+									"value": "15000",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{hw}}user_info_3",
+							"host": [
+								"{{hw}}user_info_3"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "object_info_1",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "str",
+									"type": "text"
+								},
+								{
+									"key": "age",
+									"value": "37",
+									"type": "text"
+								},
+								{
+									"key": "salary",
+									"value": "15000",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{hw}}object_info_1?name={{name}}&age={{age}}&weight={{weight}}",
+							"host": [
+								"{{hw}}object_info_1"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "{{name}}"
+								},
+								{
+									"key": "age",
+									"value": "{{age}}"
+								},
+								{
+									"key": "weight",
+									"value": "{{weight}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "/object_info_2",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "str",
+									"type": "text"
+								},
+								{
+									"key": "age",
+									"value": "37",
+									"type": "text"
+								},
+								{
+									"key": "salary",
+									"value": "15000",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{hw}}object_info_2?name={{name}}&age={{age}}&salary={{salary}}",
+							"host": [
+								"{{hw}}object_info_2"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "{{name}}"
+								},
+								{
+									"key": "age",
+									"value": "{{age}}"
+								},
+								{
+									"key": "salary",
+									"value": "{{salary}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "object_info_1 - 2",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "str",
+									"type": "text"
+								},
+								{
+									"key": "age",
+									"value": "37",
+									"type": "text"
+								},
+								{
+									"key": "salary",
+									"value": "15000",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{hw}}object_info_1?name=Valtar&age=34&weight=82",
+							"host": [
+								"{{hw}}object_info_1"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Valtar"
+								},
+								{
+									"key": "age",
+									"value": "34"
+								},
+								{
+									"key": "weight",
+									"value": "82"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "object_info_2 - 2",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "str",
+									"type": "text"
+								},
+								{
+									"key": "age",
+									"value": "37",
+									"type": "text"
+								},
+								{
+									"key": "salary",
+									"value": "15000",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{hw}}object_info_2?name=Valtar&age=34&salary=8200",
+							"host": [
+								"{{hw}}object_info_2"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Valtar"
+								},
+								{
+									"key": "age",
+									"value": "34"
+								},
+								{
+									"key": "salary",
+									"value": "8200"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "object_info_3",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "str",
+									"type": "text"
+								},
+								{
+									"key": "age",
+									"value": "37",
+									"type": "text"
+								},
+								{
+									"key": "salary",
+									"value": "15000",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{hw}}object_info_3?name=Valtar&age=34&salary=8200",
+							"host": [
+								"{{hw}}object_info_3"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Valtar"
+								},
+								{
+									"key": "age",
+									"value": "34"
+								},
+								{
+									"key": "salary",
+									"value": "8200"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "object_info_4",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "str",
+									"type": "text"
+								},
+								{
+									"key": "age",
+									"value": "37",
+									"type": "text"
+								},
+								{
+									"key": "salary",
+									"value": "15000",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{hw}}object_info_4?name=Valtar&age=34&salary=8200",
+							"host": [
+								"{{hw}}object_info_4"
+							],
+							"query": [
+								{
+									"key": "name",
+									"value": "Valtar"
+								},
+								{
+									"key": "age",
+									"value": "34"
+								},
+								{
+									"key": "salary",
+									"value": "8200"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "user_info_2",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "name",
+									"value": "str",
+									"type": "text"
+								},
+								{
+									"key": "age",
+									"value": "37",
+									"type": "text"
+								},
+								{
+									"key": "salary",
+									"value": "15000",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{hw}}user_info_2",
+							"host": [
+								"{{hw}}user_info_2"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							"pm.test(\"Status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});"
+						]
+					}
+				}
+			]
+		}
+	]
+}
