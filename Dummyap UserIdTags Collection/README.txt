@@ -3,4 +3,8 @@
 tags для Get List By Tag и id, для Get Post by id. После чего выполнить Run для кажой папки 
 с добавлением соотверствующего Data файло (JSON ).
 
+
 Документация: https://dummyapi.io/docs
+
+Файлы: https://github.com/Dimon4632/Postman_collections
+

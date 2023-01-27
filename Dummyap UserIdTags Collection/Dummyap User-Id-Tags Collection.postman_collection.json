@@ -2,6 +2,7 @@
 	"info": {
 		"_postman_id": "ea5d4ed4-e8ab-4c4e-a506-b6c5480297cd",
 		"name": "Dummyap User/Id/Tags Collection",
+		"description": "Для выполнения тестов в папках: Get List By User, Get List By Tag и Get Post by id неоходимо  \nизвлечь из тела ответа GET Get List в отдельные JSON файлы: id owner для Get List By User,  \ntags для Get List By Tag и id, для Get Post by id. После чего выполнить Run для кажой папки  \nс добавлением соотверствующего Data файло (JSON).\n\nДокументация: [https://dummyapi.io/docs](https://dummyapi.io/docs)\n\nФайлы: [https://github.com/Dimon4632/Postman_collections](https://github.com/Dimon4632/Postman_collections)",
 		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
 		"_exporter_id": "19590136"
 	},
